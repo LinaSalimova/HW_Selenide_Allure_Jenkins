@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.impl.Html.text;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -17,7 +18,7 @@ public class RegistrationPage {
     private SelenideElement firstNameInput = $("#firstName ");
     private SelenideElement header = $(".main-header");
     private SelenideElement email = $("#userEmail ");
-    private SelenideElement gender = $("#gender-radio-1");
+    private SelenideElement gender = $("#genterWrapper");
     private SelenideElement userNumber = $("#userNumber ");
     private SelenideElement birthInput = $("#dateOfBirthInput");
     private SelenideElement address = $("#currentAddress");
@@ -53,9 +54,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGender() {
-        gender.parent().click();
-
+    public RegistrationPage setGender(String value) {
+        gender.setValue(value).click();
         return this;
     }
 
@@ -108,8 +108,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubmit(String value) {
-        submit.shouldHave(text(value)).pressEnter();
+    public RegistrationPage  pressSubmit(String value) {
+        submit.click();
         return this;
     }
 }
