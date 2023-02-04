@@ -10,14 +10,14 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .setFirstName("Pavel")
                 .setLastName("Lepet")
                 .setEmail("pavellepet@gmail.com")
-                .setGender()
+                .setGender("Male")
                 .setUserNumber("8455345245")
                 .setBirthDate("6", "Jul", "1995")
                 .setAddress("2600 North Military Trail West Palm Beach FL 33409-0000 USA")
                 .setHobbies("Sports")
                 .setPicture("img\\1.pmg")
                 .setState("Haryana", "Karnal")
-                .setSubmit("Submit");
+                .pressSubmit("Submit");
 
         registrationPage.verifyResultsModalAppears()
                 .verifyResults(" Student Name", "Pavel Lepet")
