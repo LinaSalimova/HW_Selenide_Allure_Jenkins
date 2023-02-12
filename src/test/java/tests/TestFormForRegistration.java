@@ -33,10 +33,11 @@ import static com.codeborne.selenide.Selenide.$;
        $("#gender-radio-1").parent().click();
        $("#userNumber ").setValue(phoneNumber);
        //Date of Birth
-       $("#dateOfBirthInput").click();
-       $(".react-datepicker__month-select").selectOption("November");
-       $(".react-datepicker__year-select").selectOption("1995");
-       $(".react-datepicker__day--017").click();
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("November");
+        $(".react-datepicker__year-select").selectOption("1995");
+        $(".react-datepicker__day--06" ).click();
+        //Subjects
        $("#subjectsInput ").setValue(subject).pressTab().click();
        //Hobbies
        $("#hobbiesWrapper").$(byText("Sports")).click();
