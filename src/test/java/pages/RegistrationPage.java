@@ -1,5 +1,4 @@
 package pages;
-
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationsResultsModal;
@@ -21,13 +20,15 @@ public class RegistrationPage {
     private SelenideElement gender = $("#genterWrapper");
     private SelenideElement userNumber = $("#userNumber ");
     private SelenideElement birthInput = $("#dateOfBirthInput");
+    private SelenideElement setSubjects = $("#subjectsInput");
+    private SelenideElement hobbies = $("#hobbiesWrapper");
     private SelenideElement address = $("#currentAddress");
     private SelenideElement stateCity = $("#stateCity-wrapper");
+    private SelenideElement picture = $("#uploadPicture");
     private SelenideElement state = $("#state");
     private SelenideElement city = $("#city");
-    private SelenideElement hobbies = $("#hobbiesWrapper");
-    private SelenideElement picture = $("#uploadPicture");
     private SelenideElement submit = $("#submit");
+
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -55,7 +56,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setGender(String value) {
-        gender.setValue(value).click();
+        gender.$(byText(value)).click();
         return this;
     }
 
@@ -65,16 +66,38 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setDate(String day, String month, String year) {
         birthInput.click();
-        calendarComponent.setData(day, month, year);
-
+        calendarComponent.setDate(day, month, year);
         return this;
     }
-
+    public RegistrationPage setSubjects(String subject) {
+        setSubjects.setValue(subject).pressTab().click();;
+        return null;
+    }
+    public RegistrationPage setHobbies(String value) {
+        hobbies.$(byText(value)).click();
+        return this;
+    }
     public RegistrationPage setAddress(String value) {
         address.setValue(value);
 
+        return this;
+    }
+    public RegistrationPage setPicture(String value) {
+        picture.uploadFromClasspath(value);
+        return this;
+    }
+    public RegistrationPage setState(String value_1, String value_2) {
+        state.click();
+        stateCity.$(byText(value_1)).click();
+        city.click();
+        stateCity.$(byText(value_2)).click();
+
+        return this;
+    }
+    public RegistrationPage pressSubmit() {
+        submit.click();
         return this;
     }
 
@@ -89,27 +112,6 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setState(String value_1, String value_2) {
-        state.click();
-        stateCity.$(byText(value_1)).click();
-        city.click();
-        stateCity.$(byText(value_2)).click();
 
-        return this;
-    }
 
-    public RegistrationPage setHobbies(String value) {
-        hobbies.$(byText(value)).click();
-        return this;
-    }
-
-    public RegistrationPage setPicture(String value) {
-        picture.uploadFromClasspath(value);
-        return this;
-    }
-
-    public RegistrationPage  pressSubmit(String value) {
-        submit.click();
-        return this;
-    }
 }
