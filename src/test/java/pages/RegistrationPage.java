@@ -73,7 +73,7 @@ public class RegistrationPage {
     }
     public RegistrationPage setSubjects(String subject) {
         setSubjects.setValue(subject).pressTab().click();;
-        return null;
+        return this;
     }
     public RegistrationPage setHobbies(String value) {
         hobbies.$(byText(value)).click();
