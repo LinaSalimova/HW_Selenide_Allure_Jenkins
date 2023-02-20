@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Selenide.$;
       void studentRegistrationForm() {
         String name = "Pavel";
         String lastName = "Lepet";
-        String email = "pavellepet@gmail.co";
+        String email = "pavellepet@gmail.com";
         String phoneNumber = "8455345245";
         String subject = "English";
         String currentAddress = "2600 North Military Trail West Palm Beach FL 33409-0000 USA";
