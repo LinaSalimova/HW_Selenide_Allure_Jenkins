@@ -1,4 +1,5 @@
 package pages;
+
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationsResultsModal;
@@ -7,7 +8,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.impl.Html.text;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -88,7 +88,7 @@ public class RegistrationPage {
         picture.uploadFromClasspath(value);
         return this;
     }
-    public RegistrationPage setState(String value_1, String value_2) {
+    public RegistrationPage setState(String value_1) {
         state.click();
         stateCity.$(byText(value_1)).click();
         city.click();
@@ -111,7 +111,5 @@ public class RegistrationPage {
         registrationsResultsModal.verifyModalAppears();
         return this;
     }
-
-
 
 }
