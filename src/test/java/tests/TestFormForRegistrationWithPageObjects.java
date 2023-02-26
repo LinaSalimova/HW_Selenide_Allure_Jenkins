@@ -6,6 +6,7 @@ import pages.RegistrationPage;
 
 public class TestFormForRegistrationWithPageObjects extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+
     @Test
     void studentRegistrationForm() {
         registrationPage
@@ -20,7 +21,7 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .setHobbies("Sports")
                 .setAddress("2600 North Military Trail West Palm Beach FL 33409-0000 USA")
                 .setPicture("img\\1.pmg")
-                .setState("Haryana","Karnal")
+                .setState("Haryana", "Karnal")
                 .pressSubmit();
 
         registrationPage.verifyResultsModalAppears()

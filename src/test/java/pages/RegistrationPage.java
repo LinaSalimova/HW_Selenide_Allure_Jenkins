@@ -27,7 +27,7 @@ public class RegistrationPage {
     private SelenideElement picture = $("#uploadPicture");
     private SelenideElement state = $("#state");
     private SelenideElement city = $("#city");
-    private SelenideElement submit =  $("#submit");
+    private SelenideElement submit = $("#submit");
 
 
     public RegistrationPage openPage() {
@@ -71,24 +71,30 @@ public class RegistrationPage {
         calendarComponent.setDate(day, month, year);
         return this;
     }
+
     public RegistrationPage setSubjects(String subject) {
-        setSubjects.setValue(subject).pressTab().click();;
+        setSubjects.setValue(subject).pressTab().click();
+        ;
         return this;
     }
+
     public RegistrationPage setHobbies(String value) {
         hobbies.$(byText(value)).click();
         return this;
     }
+
     public RegistrationPage setAddress(String value) {
         address.setValue(value);
 
         return this;
     }
+
     public RegistrationPage setPicture(String value) {
         picture.uploadFromClasspath(value);
         return this;
     }
-    public RegistrationPage setState(String value_1,String value_2) {
+
+    public RegistrationPage setState(String value_1, String value_2) {
         state.click();
         stateCity.$(byText(value_1)).click();
         city.click();
@@ -96,6 +102,7 @@ public class RegistrationPage {
 
         return this;
     }
+
     public RegistrationPage pressSubmit() {
         submit.click();
         return this;

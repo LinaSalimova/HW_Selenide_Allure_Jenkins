@@ -1,18 +1,20 @@
 package registration;
+
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
+
 import static registration.RandomUtils.randomInt;
 
 public class RegistrationPageObjects extends TestBase {
     Faker faker = new Faker();
 
     @Test
-    void studentRegistrationFormTest () {
+    void studentRegistrationFormTest() {
         String name = faker.name().firstName(),
                 lastName = faker.name().lastName(),
                 email = faker.internet().emailAddress(),
-                phoneNumber = String.valueOf(randomInt (5,11)),
+                phoneNumber = String.valueOf(randomInt(5, 11)),
                 currentAddress = faker.address().streetAddress(),
                 gender = "Male",
                 dateOfBirth = "6 November,1995",
@@ -33,7 +35,7 @@ public class RegistrationPageObjects extends TestBase {
                 .setHobbies(hobbies)
                 .setPicture(pictureSource)
                 .setAddress(currentAddress)
-                .setState("Haryana","Karnal")
+                .setState("Haryana", "Karnal")
                 .pressSubmit();
 
         registrationPage.verifyResultsModalAppears()
@@ -46,6 +48,6 @@ public class RegistrationPageObjects extends TestBase {
                 .verifyResults("Subjects", subject)
                 .verifyResults("Hobbies", hobbies)
                 .verifyResults("Picture", pictureFIleName)
-                .verifyResults("State and City",stateAndCity);
+                .verifyResults("State and City", stateAndCity);
     }
 }
