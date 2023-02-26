@@ -1,9 +1,7 @@
 package registration;
-
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
-
 import static registration.RandomUtils.randomInt;
 
 public class RegistrationPageObjects extends TestBase {
@@ -22,7 +20,7 @@ public class RegistrationPageObjects extends TestBase {
                 hobbies = "Sports",
                 pictureFIleName = "1.pmg",
                 pictureSource = "img\\1.pmg",
-                stateAndCity = "Haryana Karnal";
+                stateAndCity = "Haryana, Karnal";
 
         registrationPage.openPage()
                 .setFirstName(name)
@@ -35,11 +33,10 @@ public class RegistrationPageObjects extends TestBase {
                 .setHobbies(hobbies)
                 .setPicture(pictureSource)
                 .setAddress(currentAddress)
-                .setState(stateAndCity)
+                .setState("Haryana","Karnal")
                 .pressSubmit();
 
-        registrationPage.verifyResultsModalAppears();
-        registrationPage
+        registrationPage.verifyResultsModalAppears()
                 .verifyResults("Student Name", name + " " + lastName)
                 .verifyResults("Student Email", email)
                 .verifyResults("Gender", gender)
