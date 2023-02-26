@@ -27,7 +27,7 @@ public class RegistrationPage {
     private SelenideElement picture = $("#uploadPicture");
     private SelenideElement state = $("#state");
     private SelenideElement city = $("#city");
-    private SelenideElement submit = $("#submit");
+    private SelenideElement submit =  $("#submit");
 
 
     public RegistrationPage openPage() {
@@ -88,7 +88,7 @@ public class RegistrationPage {
         picture.uploadFromClasspath(value);
         return this;
     }
-    public RegistrationPage setState(String value_1) {
+    public RegistrationPage setState(String value_1,String value_2) {
         state.click();
         stateCity.$(byText(value_1)).click();
         city.click();
@@ -111,5 +111,4 @@ public class RegistrationPage {
         registrationsResultsModal.verifyModalAppears();
         return this;
     }
-
 }
