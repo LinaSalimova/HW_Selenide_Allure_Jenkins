@@ -19,6 +19,7 @@ public class TestBase {
     String currentAddress = "2600 North Military Trail West Palm Beach FL 33409-0000 USA";
     String subject = "English";
     String hobby = "Sports";
+    String pictureFIleName = "1.pmg";
     String state = "Haryana";
     String city = "Karnal";
     String stateAndCity = state + " " + city;

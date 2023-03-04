@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationsResultsModal;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -24,7 +26,7 @@ public class RegistrationPage {
     private SelenideElement hobbies = $("#hobbiesWrapper");
     private SelenideElement address = $("#currentAddress");
     private SelenideElement stateCity = $("#stateCity-wrapper");
-    private SelenideElement picture = $("#uploadPicture");
+    private SelenideElement picture = $("input#uploadPicture");
     private SelenideElement state = $("#state");
     private SelenideElement city = $("#city");
     private SelenideElement submit = $("#submit");
@@ -90,7 +92,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setPicture(String value) {
-        picture.uploadFromClasspath(value);
+        picture.uploadFile(new File("src/test/resources/" + value));
         return this;
     }
 

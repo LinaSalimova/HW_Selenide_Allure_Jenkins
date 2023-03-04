@@ -11,16 +11,16 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
     void studentRegistrationForm() {
         registrationPage
                 .openPage()
-                .setFirstName("Pavel")
-                .setLastName("Lepet")
-                .setEmail("pavellepet@gmail.com")
-                .setGender("Male")
-                .setUserNumber("8455345245")
+                .setFirstName(name)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setGender(gender)
+                .setUserNumber(phoneNumber)
                 .setDate("06", "November", "1995")
-                .setSubjects("English")
-                .setHobbies("Sports")
-                .setAddress("2600 North Military Trail West Palm Beach FL 33409-0000 USA")
-                .setPicture("img\\1.pmg")
+                .setSubjects(subject)
+                .setHobbies(hobby)
+                .setPicture(pictureFIleName)
+                .setAddress(currentAddress)
                 .setState("Haryana", "Karnal")
                 .pressSubmit();
 
@@ -32,7 +32,7 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .verifyResults("Date of Birth", birthDate)
                 .verifyResults("Subjects", subject)
                 .verifyResults("Hobbies", hobby)
-                .verifyResults("Picture", "img\\1.pmg")
+                .verifyResults("Picture", pictureFIleName)
                 .verifyResults("Address", currentAddress)
                 .verifyResults("State and City", stateAndCity);
     }
