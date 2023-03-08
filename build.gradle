@@ -19,17 +19,14 @@ dependencies {
             'io.qameta.allure:allure-selenide:2.20.1')
 
     allure {
-        version.set("2.20.1")
+        report {
+            version.set("2.17.3") //версия Allure Report (https://github.com/allure-framework/allure2)
+        }
         adapter {
-            allureJavaVersion.set("2.20.1")
-            aspectjVersion.set("1.9.5")
-            aspectjWeaver.set(true)
-
+            aspectjWeaver.set(true) // обработка аннотации @Step
             frameworks {
                 junit5 {
-                    // Defaults to allureJavaVersion
-                    adapterVersion.set("2.20.1")
-                    enabled.set(true)
+                    adapterVersion.set("2.17.3") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
                 }
             }
         }
@@ -43,6 +40,11 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+task remote_test(type: Test){
+    useJUnitPlatform{
+        includeTags("remote")
+    }
 }
 
 tasks.withType(Test) {
