@@ -38,7 +38,7 @@ test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
-    tasks.remote_test(type: Test) {
+    tasks remote_test(type: Test) {
         useJUnitPlatform {
             includeTags("remote")
         }
