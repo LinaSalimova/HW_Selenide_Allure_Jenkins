@@ -68,12 +68,6 @@ tasks.withType(Test) {
         }
         systemProperties(System.getProperties())
     }
-    task faker_test(type: Test) {
-        useJUnitPlatform {
-            includeTags("faker test")
-        }
-        systemProperties(System.getProperties())
-    }
 }
 test {
     useJUnitPlatform()
