@@ -8,14 +8,17 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class TestFormForRegistration extends TestBase {
     @Tag("remote")
     @Test
     void studentRegistrationForm() {
-
-        open("/automation-practice-form");
-        $(".main-header").shouldHave(text("Practice Form"));
+        step("Open form", () -> {
+            open("/automation-practice-form");
+            $(".main-header").shouldHave(text("Practice Form"));
+        });
+        step("Fill form", () -> {
         $("#firstName ").setValue(name);
         $("#lastName ").setValue(lastName);
         $("#userEmail ").setValue(email);
@@ -40,6 +43,8 @@ public class TestFormForRegistration extends TestBase {
         $("#city").click();
         $("#stateCity-wrapper").$(byText(city)).click();
         $("#submit").click();
+        });
+        step("Verify results", () -> {
         $(".modal-content").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(fullName));
@@ -52,5 +57,6 @@ public class TestFormForRegistration extends TestBase {
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text(("img\\1.pmg")));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(stateAndCity));
+        });
     }
 }
