@@ -11,13 +11,22 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+def allureVersion = "2.21.0",
+    assertJVersion = "3.24.2",
+    restAssuredVersion = "5.3.0"
 dependencies {
     testImplementation(
-            'com.codeborne:selenide:6.11.0',
-            'org.junit.jupiter:junit-jupiter-api:5.9.1',
-            'com.github.javafaker:javafaker:1.0.2',
-            'io.qameta.allure:allure-selenide:2.20.1')
-
+            "com.codeborne:selenide:6.11.0",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.junit.jupiter:junit-jupiter-api:5.9.1",
+            "com.github.javafaker:javafaker:1.0.2",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "io.github.bonigarcia:webdrivermanager:5.3.2",
+            "org.seleniumhq.selenium:selenium-devtools-v109:4.8.0",
+            "org.assertj:assertj-core:$assertJVersion",
+            "org.aeonbits.owner:owner:1.0.12")
     allure {
         version.set(allureVersion)
         adapter {
@@ -34,6 +43,10 @@ dependencies {
             }
         }
     }
+    test {
+        useJUnitPlatform()
+        systemProperties(System.getProperties())
+    }
 
 
     testRuntimeOnly(
@@ -49,17 +62,20 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     useJUnitPlatform()
 
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
-
-    task remote_test(type: Test){
-        useJUnitPlatform{
+    task remote_test(type: Test) {
+        useJUnitPlatform {
             includeTags("remote")
         }
         systemProperties(System.getProperties())
     }
+    task faker_test(type: Test) {
+        useJUnitPlatform {
+            includeTags("faker test")
+        }
+        systemProperties(System.getProperties())
+    }
+}
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
 }

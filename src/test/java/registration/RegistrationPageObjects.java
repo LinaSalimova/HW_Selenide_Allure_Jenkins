@@ -1,6 +1,7 @@
 package registration;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -9,6 +10,7 @@ import static registration.RandomUtils.randomInt;
 public class RegistrationPageObjects extends TestBase {
     Faker faker = new Faker();
 
+    @Tag("faker test")
     @Test
     void studentRegistrationFormTest() {
         String name = faker.name().firstName(),
