@@ -35,7 +35,7 @@ public class TestFormForRegistration extends TestBase {
         //Hobbies
         $("#hobbiesWrapper").$(byText(hobby)).click();
         //Picture
-        $("#uploadPicture").uploadFromClasspath("images/1.jpg");
+        $("#uploadPicture").uploadFromClasspath("images/" + pictureFIleName);
         $("#currentAddress").setValue(currentAddress);
         //State and City
         $("#state").click();
