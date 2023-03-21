@@ -52,7 +52,7 @@ tasks.withType(Test) {
     }
 task faker_test(type: Test) {
     useJUnitPlatform {
-        includeTags("remote")
+        includeTags("faker")
     }
     systemProperties(System.getProperties())
 }
