@@ -35,7 +35,7 @@ public class TestFormForRegistration extends TestBase {
         //Hobbies
         $("#hobbiesWrapper").$(byText(hobby)).click();
         //Picture
-        $("#uploadPicture").uploadFromClasspath(("img\\1.pmg"));
+        $("#uploadPicture").uploadFromClasspath("images/" + pictureFIleName);
         $("#currentAddress").setValue(currentAddress);
         //State and City
         $("#state").click();
@@ -54,7 +54,7 @@ public class TestFormForRegistration extends TestBase {
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text(birthDate));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text(subject));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text(hobby));
-        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text(("img\\1.pmg")));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text(("img\\1.jpg")));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(stateAndCity));
         });

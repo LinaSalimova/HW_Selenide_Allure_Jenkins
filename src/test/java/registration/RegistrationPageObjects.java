@@ -10,6 +10,7 @@ public class RegistrationPageObjects extends TestBase {
     Faker faker = new Faker();
 
     @Test
+
     void studentRegistrationFormTest() {
         String name = faker.name().firstName(),
                 lastName = faker.name().lastName(),
@@ -20,8 +21,8 @@ public class RegistrationPageObjects extends TestBase {
                 dateOfBirth = "6 November,1995",
                 subject = "English",
                 hobbies = "Sports",
-                pictureFIleName = "1.pmg",
-                pictureSource = "img\\1.pmg",
+                pictureFIleName = "1.jpg",
+                pictureSource = "img\\1.jpg",
                 stateAndCity = "Haryana, Karnal";
 
         registrationPage.openPage()
