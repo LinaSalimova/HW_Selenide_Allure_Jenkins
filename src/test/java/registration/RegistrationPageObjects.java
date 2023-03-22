@@ -1,16 +1,18 @@
 package registration;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
+import static io.qameta.allure.Allure.step;
 import static registration.RandomUtils.randomInt;
 
 public class RegistrationPageObjects extends TestBase {
     Faker faker = new Faker();
 
     @Test
-
+    @Tag("faker")
     void studentRegistrationFormTest() {
         String name = faker.name().firstName(),
                 lastName = faker.name().lastName(),
@@ -22,9 +24,9 @@ public class RegistrationPageObjects extends TestBase {
                 subject = "English",
                 hobbies = "Sports",
                 pictureFIleName = "1.jpg",
-                pictureSource = "img\\1.jpg",
+                pictureSource = "img\\1.png",
                 stateAndCity = "Haryana, Karnal";
-
+        step("Заполнить поля формы и нажать кнопку", () -> {
         registrationPage.openPage()
                 .setFirstName(name)
                 .setLastName(lastName)
@@ -38,7 +40,8 @@ public class RegistrationPageObjects extends TestBase {
                 .setAddress(currentAddress)
                 .setState("Haryana", "Karnal")
                 .pressSubmit();
-
+        });
+        step("Проверить корректность заполнения данных в таблице", () -> {
         registrationPage.verifyResultsModalAppears()
                 .verifyResults("Student Name", name + " " + lastName)
                 .verifyResults("Student Email", email)
@@ -50,5 +53,6 @@ public class RegistrationPageObjects extends TestBase {
                 .verifyResults("Hobbies", hobbies)
                 .verifyResults("Picture", pictureFIleName)
                 .verifyResults("State and City", stateAndCity);
+        });
     }
 }
