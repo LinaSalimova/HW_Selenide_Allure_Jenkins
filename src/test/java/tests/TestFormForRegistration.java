@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TestFormForRegistration extends TestBase {
@@ -39,9 +38,9 @@ public class TestFormForRegistration extends TestBase {
         $("#currentAddress").setValue(currentAddress);
         //State and City
         $("#state").click();
-        $("#stateCity-wrapper").$(byText(state)).click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(byText(city)).click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
         });
         step("Verify results", () -> {
@@ -54,7 +53,7 @@ public class TestFormForRegistration extends TestBase {
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text(birthDate));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text(subject));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text(hobby));
-        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text(("img\\1.jpg")));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text(("images/1.jpg")));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(stateAndCity));
         });
