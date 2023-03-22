@@ -19,7 +19,7 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .setDate("06", "November", "1995")
                 .setSubjects(subject)
                 .setHobbies(hobby)
-                .setPicture(pictureFIleName)
+                .setPicture(pictureSource)
                 .setAddress(currentAddress)
                 .setState("Haryana", "Karnal")
                 .pressSubmit();
