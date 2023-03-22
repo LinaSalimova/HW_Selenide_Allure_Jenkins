@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TestFormForRegistration extends TestBase {
@@ -38,10 +37,11 @@ public class TestFormForRegistration extends TestBase {
         $("#uploadPicture").uploadFromClasspath("images/" + pictureFIleName);
         $("#currentAddress").setValue(currentAddress);
         //State and City
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText(state)).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText(city)).click();
+        $("#react-select-3-input").setValue("Haryana").pressEnter();
+        $("#react-select-4-input").setValue("Karnal").pressEnter();
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
         $("#submit").click();
         });
         step("Verify results", () -> {
