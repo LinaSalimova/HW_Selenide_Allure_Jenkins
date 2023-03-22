@@ -41,7 +41,6 @@ public class TestFormForRegistration extends TestBase {
         $("#react-select-4-input").setValue("Karnal").pressEnter();
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-
         $("#submit").click();
         });
         step("Verify results", () -> {
