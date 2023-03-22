@@ -39,8 +39,7 @@ public class TestFormForRegistration extends TestBase {
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(byText("Karnal")).click();
-        $("#submit").click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();;
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         $("#submit").click();
