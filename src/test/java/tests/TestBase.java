@@ -27,6 +27,7 @@ public class TestBase {
     String subject = "English";
     String hobby = "Sports";
     String pictureFIleName = "1.png";
+    String fIleName ="src/test/resources/images";
     String state = "Haryana";
     String city = "Karnal";
     String stateAndCity = state + " " + city;
