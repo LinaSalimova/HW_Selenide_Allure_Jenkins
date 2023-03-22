@@ -36,8 +36,11 @@ public class TestFormForRegistration extends TestBase {
         //Picture
         $("#uploadPicture").uploadFromClasspath("images/" + pictureFIleName);
         $("#currentAddress").setValue(currentAddress);
-        $("#react-select-3-input").setValue("Haryana").pressEnter();
-        $("#react-select-4-input").setValue("Karnal").pressEnter();
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
+        $("#submit").click();
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         $("#submit").click();
