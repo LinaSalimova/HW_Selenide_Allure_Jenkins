@@ -23,8 +23,8 @@ public class RegistrationPageObjects extends TestBase {
                 dateOfBirth = "6 November,1995",
                 subject = "English",
                 hobbies = "Sports",
-                pictureFIleName = "1.jpg",
-                pictureSource = "img\\1.png",
+                pictureFIleName = "file.png",
+                pictureSource = "images\\file.png",
                 stateAndCity = "Haryana, Karnal";
         step("Заполнить поля формы и нажать кнопку", () -> {
         registrationPage.openPage()
