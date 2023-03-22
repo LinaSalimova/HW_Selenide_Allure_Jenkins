@@ -23,7 +23,7 @@ public class RegistrationPageObjects extends TestBase {
                 dateOfBirth = "6 November,1995",
                 subject = "English",
                 hobbies = "Sports",
-                pictureFIleName = "1.jpg",
+                pictureFIleName = "1.png",
                 pictureSource = "img\\1.png",
                 stateAndCity = "Haryana, Karnal";
         step("Заполнить поля формы и нажать кнопку", () -> {
