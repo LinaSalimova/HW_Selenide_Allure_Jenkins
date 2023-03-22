@@ -24,7 +24,7 @@ public class RegistrationPageObjects extends TestBase {
                 subject = "English",
                 hobbies = "Sports",
                 pictureFIleName = "file.png",
-                pictureSource = "images\\file.png",
+                pictureSource = "images/file.png",
                 stateAndCity = "Haryana, Karnal";
         step("Заполнить поля формы и нажать кнопку", () -> {
         registrationPage.openPage()
