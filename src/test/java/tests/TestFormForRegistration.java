@@ -36,7 +36,7 @@ public class TestFormForRegistration extends TestBase {
         //Picture
         $("#uploadPicture").uploadFromClasspath("images/" + pictureFIleName);
         $("#currentAddress").setValue(currentAddress);
-        $("#state").click();
+        $(".css-1wa3eu0-placeholder").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();;
