@@ -25,7 +25,7 @@ public class RegistrationPage {
     private SelenideElement address = $("#currentAddress");
     private SelenideElement stateCity = $("#stateCity-wrapper");
     private SelenideElement picture = $("input#uploadPicture");
-    private SelenideElement state = $(".css-1wa3eu0-placeholder");
+    private SelenideElement state = $("#state");
     private SelenideElement city = $("#city");
     private SelenideElement submit = $("#submit");
 
