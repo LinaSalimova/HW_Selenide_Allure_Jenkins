@@ -36,12 +36,10 @@ public class TestFormForRegistration extends TestBase {
         //Picture
         $("#uploadPicture").uploadFromClasspath("images/" + pictureFIleName);
         $("#currentAddress").setValue(currentAddress);
-        $(".css-1uccc91-singleValue").click();
+        $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
-        $(".css-yk16xz-control").click();
+        $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();;
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
         $("#submit").click();
         });
         step("Verify results", () -> {

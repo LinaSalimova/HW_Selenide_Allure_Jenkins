@@ -96,7 +96,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setState(String value_1, String value_2) {
+    public RegistrationPage setStateCity(String value_1, String value_2) {
         state.click();
         stateCity.$(byText(value_1)).click();
         city.click();

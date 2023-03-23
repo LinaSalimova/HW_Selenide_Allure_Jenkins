@@ -21,7 +21,7 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .setHobbies(hobby)
                 .setPicture(pictureSource)
                 .setAddress(currentAddress)
-                .setState("Haryana", "Karnal")
+                .setStateCity("Haryana", "Karnal")
                 .pressSubmit();
 
         registrationPage.verifyResultsModalAppears()
