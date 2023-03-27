@@ -39,13 +39,13 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize", "1980x1020");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.baseUrl = "https://demoqa.com";
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
     }
     @BeforeEach
     void addListenerAndOpenPage() {
