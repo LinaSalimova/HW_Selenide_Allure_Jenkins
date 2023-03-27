@@ -35,11 +35,6 @@ public class RegistrationPage {
 
         return this;
     }
-    public RegistrationPage closeBanner(){
-    executeJavaScript("$('#fixedban').remove()");
-    executeJavaScript("$('footer').remove()");
-        return null;
-    }
 
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
@@ -96,6 +91,11 @@ public class RegistrationPage {
     public RegistrationPage setPicture(String value) {
         picture.uploadFile(new File("src/test/resources/" + value));
         return this;
+    }
+    public RegistrationPage closeBanner(){
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return null;
     }
 
     public RegistrationPage setStateCity(String value_1, String value_2) {

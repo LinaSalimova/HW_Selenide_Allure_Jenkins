@@ -29,7 +29,6 @@ public class RegistrationPageObjects extends TestBase {
 
         step("Заполнить поля формы и нажать кнопку", () -> {
         registrationPage.openPage()
-                .closeBanner()
                 .setFirstName(name)
                 .setLastName(lastName)
                 .setEmail(email)
@@ -40,6 +39,7 @@ public class RegistrationPageObjects extends TestBase {
                 .setHobbies(hobbies)
                 .setPicture(pictureSource)
                 .setAddress(currentAddress)
+                .closeBanner()
                 .setStateCity("Haryana", "Karnal")
                 .pressSubmit();
         });
