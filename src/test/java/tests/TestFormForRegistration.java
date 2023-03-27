@@ -40,6 +40,7 @@ public class TestFormForRegistration extends TestBase {
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#react-select-3-option-0").click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();;
         $("#submit").click();
