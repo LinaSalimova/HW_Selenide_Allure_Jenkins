@@ -6,8 +6,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -35,6 +34,11 @@ public class RegistrationPage {
         header.shouldHave(text(TITLE_TEXT));
 
         return this;
+    }
+    public RegistrationPage closeBanner(){
+    executeJavaScript("$('#fixedban').remove()");
+    executeJavaScript("$('footer').remove()");
+        return null;
     }
 
     public RegistrationPage setFirstName(String value) {
