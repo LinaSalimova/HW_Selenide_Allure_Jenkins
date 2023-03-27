@@ -39,8 +39,8 @@ public class RegistrationPageObjects extends TestBase {
                 .setHobbies(hobbies)
                 .setPicture(pictureSource)
                 .setAddress(currentAddress)
-                .closeBanner()
                 .setStateCity("Haryana", "Karnal")
+                .closeBanner()
                 .pressSubmit();
         });
         step("Проверить корректность заполнения данных в таблице", () -> {
