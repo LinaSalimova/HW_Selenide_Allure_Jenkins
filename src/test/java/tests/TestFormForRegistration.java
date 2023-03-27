@@ -16,8 +16,6 @@ public class TestFormForRegistration extends TestBase {
         step("Open form", () -> {
             open("/automation-practice-form");
             $(".main-header").shouldHave(text("Practice Form"));
-            executeJavaScript("$('#fixedban').remove()");
-            executeJavaScript("$('footer').remove()");
         });
         step("Fill form", () -> {
         $("#firstName ").setValue(name);
@@ -40,7 +38,6 @@ public class TestFormForRegistration extends TestBase {
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
-        $("#react-select-3-option-0").click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();;
         $("#submit").click();
