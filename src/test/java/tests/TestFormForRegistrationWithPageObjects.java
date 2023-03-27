@@ -3,12 +3,19 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.components.RegistrationPage;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static io.qameta.allure.Allure.step;
+
 
 public class TestFormForRegistrationWithPageObjects extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void studentRegistrationForm() {
+        step("Close banner", () -> {
+            executeJavaScript("$('#fixedban').remove()");
+            executeJavaScript("$('footer').remove()");
+        });
         registrationPage
                 .openPage()
                 .setFirstName(name)
@@ -38,4 +45,5 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
 
 
     }
+
 }

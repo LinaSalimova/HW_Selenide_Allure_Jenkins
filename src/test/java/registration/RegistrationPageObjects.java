@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static io.qameta.allure.Allure.step;
 import static registration.RandomUtils.randomInt;
 
@@ -26,6 +27,10 @@ public class RegistrationPageObjects extends TestBase {
                 pictureFIleName = "file.png",
                 pictureSource = "images/file.png",
                 stateAndCity = "Haryana, Karnal";
+        step("Close banner", () -> {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        });
         step("Заполнить поля формы и нажать кнопку", () -> {
         registrationPage.openPage()
                 .setFirstName(name)

@@ -11,8 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.components.RegistrationPage;
 
-import static com.codeborne.selenide.Selenide.executeJavaScript;
-
 public class TestBase {
     public RegistrationPage registrationPage = new RegistrationPage();
     String name = "Pavel";
@@ -39,8 +37,6 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize", "1980x1020");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.baseUrl = "https://demoqa.com";
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
@@ -51,6 +47,8 @@ public class TestBase {
     void addListenerAndOpenPage() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+
+
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
