@@ -35,5 +35,7 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .verifyResults("Picture", pictureFIleName)
                 .verifyResults("Address", currentAddress)
                 .verifyResults("State and City", stateAndCity);
+
+
     }
 }

@@ -17,6 +17,10 @@ public class TestFormForRegistration extends TestBase {
             open("/automation-practice-form");
             $(".main-header").shouldHave(text("Practice Form"));
         });
+        step("Close banner", () -> {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        });
         step("Fill form", () -> {
         $("#firstName ").setValue(name);
         $("#lastName ").setValue(lastName);
