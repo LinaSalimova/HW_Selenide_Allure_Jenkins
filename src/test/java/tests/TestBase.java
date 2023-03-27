@@ -11,8 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.components.RegistrationPage;
 
-import static com.codeborne.selenide.Selenide.executeJavaScript;
-
 public class TestBase {
     public RegistrationPage registrationPage = new RegistrationPage();
     String name = "Pavel";
@@ -44,8 +42,6 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
     }
     @BeforeEach
     void addListenerAndOpenPage() {
