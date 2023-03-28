@@ -21,7 +21,6 @@ public class TestFormForRegistrationWithPageObjects extends TestBase {
                 .setHobbies(hobby)
                 .setPicture(pictureSource)
                 .setAddress(currentAddress)
-                .closeBanner()
                 .setStateCity("Haryana", "Karnal")
                 .pressSubmit();
 

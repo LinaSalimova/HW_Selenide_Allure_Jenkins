@@ -92,13 +92,10 @@ public class RegistrationPage {
         picture.uploadFile(new File("src/test/resources/" + value));
         return this;
     }
-    public RegistrationPage closeBanner(){
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-        return null;
-    }
 
     public RegistrationPage setStateCity(String value_1, String value_2) {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         state.click();
         stateCity.$(byText(value_1)).click();
         city.click();
